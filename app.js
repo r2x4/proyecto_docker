@@ -4,10 +4,10 @@ const mysql = require('mysql2');
 const app = express();
 
 const connection = mysql.createConnection({
-    host: 'db',
+    host: 'host.docker.internal',
     user: 'root',
-    password: 'root',
-    database: 'testdb'
+    password: 'Dragon2307*',
+    database: 'venta_jugos'
 });
 
 app.get('/', (req, res) => {
