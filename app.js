@@ -12,7 +12,7 @@ const connection = mysql.createConnection({
 
 app.get('/', (req, res) => {
 
-    connection.query('SELECT * FROM clientes', (err, results) => {
+    connection.query('SELECT NOW() AS fecha', (err, results) => {
 
         if (err) {
             console.error(err);
@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
         }
 
         res.json(results);
+
     });
 
 });
