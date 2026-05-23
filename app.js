@@ -12,13 +12,14 @@ const connection = mysql.createConnection({
 
 app.get('/', (req, res) => {
 
-    connection.query('SELECT NOW() AS fecha', (err, results) => {
+    connection.query('SELECT * FROM clientes', (err, results) => {
 
         if (err) {
+            console.error(err);
             return res.send('Error conectando a MySQL');
         }
 
-        res.send('Conexión exitosa con Docker y MySQL: ' + results[0].fecha);
+        res.json(results);
     });
 
 });
