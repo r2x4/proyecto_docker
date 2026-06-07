@@ -6,6 +6,12 @@ pipeline {
     }
     
     stages {
+        stage('Clonar repositorio') {
+            steps {
+                git url: 'https://github.com/r2x4/proyecto_docker.git', branch: 'samurai'
+            }
+        }
+        
         stage('Limpiar contenedores viejos') {
             steps {
                 sh 'docker stop mysql-db web-app || true'
@@ -32,7 +38,7 @@ pipeline {
             }
         }
         
-        stage('Esperar MySQL (con verificación real)') {
+        stage('Esperar MySQL con verificación real') {
             steps {
                 script {
                     timeout(60) {
