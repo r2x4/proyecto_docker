@@ -255,7 +255,9 @@ Este proyecto permitió aplicar de forma práctica los conceptos de contenerizac
 
 # 👨‍💻 Autor
 
-**Rodrigo Rocha Sierra**
+**Grupo: B04**
+
+**Subgrupo: 08**
 
 **Ingeniería de Software**
 
