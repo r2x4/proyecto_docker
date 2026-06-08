@@ -1,33 +1,78 @@
-const express = require('express');
-const mysql = require('mysql2');
-
-const app = express();
-
-const connection = mysql.createConnection({
-    host: 'mysql-db',
-    user: 'root',
-    password: 'Dragon2307*',
-    database: 'venta_jugos'
-});
-
-connection.connect((err) => {
-    if (err) {
-        console.error('Error conectando a MySQL:', err);
-        return;
-    }
-    console.log('Conectado a MySQL correctamente');
-});
-
 app.get('/', (req, res) => {
     connection.query('SELECT * FROM tb_cliente', (err, results) => {
+
         if (err) {
             console.error(err);
             return res.send('Error conectando a MySQL');
         }
-        res.json(results);
-    });
-});
 
-app.listen(3000, () => {
-    console.log('Servidor corriendo en puerto 3000');
+        let html = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Venta de Jugos</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 20px;
+                }
+                h1 {
+                    text-align: center;
+                }
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                }
+                th {
+                    background-color: #007bff;
+                    color: white;
+                    padding: 10px;
+                }
+                td {
+                    padding: 8px;
+                    border: 1px solid #ddd;
+                }
+                tr:nth-child(even) {
+                    background-color: #f2f2f2;
+                }
+            </style>
+        </head>
+        <body>
+
+        <h1>Clientes - Venta de Jugos</h1>
+
+        <table>
+            <tr>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Ciudad</th>
+                <th>Sexo</th>
+                <th>Edad</th>
+                <th>Límite Crédito</th>
+            </tr>
+        `;
+
+        results.forEach(cliente => {
+            html += `
+            <tr>
+                <td>${cliente.DNI}</td>
+                <td>${cliente.NOMBRE}</td>
+                <td>${cliente.CIUDAD}</td>
+                <td>${cliente.SEXO}</td>
+                <td>${cliente.EDAD}</td>
+                <td>$${cliente.LIMITE_CREDITO}</td>
+            </tr>
+            `;
+        });
+
+        html += `
+            </table>
+            <br>
+            <strong>Total clientes:</strong> ${results.length}
+        </body>
+        </html>
+        `;
+
+        res.send(html);
+    });
 });
