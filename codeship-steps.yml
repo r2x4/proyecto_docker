@@ -1,0 +1,3 @@
+- name: validar-proyecto
+  service: app
+  command: sh -c "node --version && npm --version && ls -la"

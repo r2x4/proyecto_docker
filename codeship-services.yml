@@ -1,0 +1,4 @@
+app:
+  build:
+    image: proyecto-docker-app
+    dockerfile: Dockerfile
