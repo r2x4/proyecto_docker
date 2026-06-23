@@ -27,11 +27,23 @@ jobs:
       - name: Verificar Docker
         run: docker --version
 
+      - name: Verificar Docker Compose
+        run: docker compose version
+
+      - name: Validar archivo docker-compose
+        run: docker compose config
+
       - name: Construir imagen Docker
         run: docker build -t proyecto-docker-app .
 
-      - name: Verificar archivos del proyecto
-        run: ls -la
+      - name: Levantar contenedores con Docker Compose
+        run: docker compose up -d
+
+      - name: Verificar contenedores activos
+        run: docker ps -a
+
+      - name: Detener contenedores
+        run: docker compose down
 
       - name: Finalizar validación
         run: echo "Integración continua ejecutada correctamente con GitHub Actions"
