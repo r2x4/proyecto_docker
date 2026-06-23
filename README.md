@@ -15,6 +15,8 @@ El objetivo principal fue implementar una aplicación web utilizando **Node.js**
 
 La aplicación consulta información almacenada en la base de datos **venta_jugos** y presenta los registros de la tabla **tb_cliente** mediante una interfaz web accesible desde el navegador.
 
+Adicionalmente, el proyecto fue integrado con herramientas de integración continua en la nube como Travis CI y Codeship, permitiendo la validación automática del sistema en diferentes entornos. Esto permitió implementar un flujo completo de integración continua utilizando múltiples plataformas conectadas al repositorio de GitHub.
+
 ---
 
 # 🎯 Objetivos
@@ -26,6 +28,10 @@ La aplicación consulta información almacenada en la base de datos **venta_jugo
 - Implementar control de versiones utilizando Git y GitHub.
 - Automatizar procesos mediante Jenkins.
 - Aplicar conceptos de Integración Continua vistos durante el curso.
+- Implementar validación automática del proyecto mediante Travis CI.
+- Integrar herramientas adicionales de CI como Codeship para la verificación del sistema.
+- Aplicar un enfoque de integración continua multiherramienta (Jenkins, Travis CI y Codeship).
+
 
 ---
 
@@ -40,12 +46,17 @@ La aplicación consulta información almacenada en la base de datos **venta_jugo
 - Git
 - GitHub
 - Visual Studio Code
+- Travis CI
+- Codeship
 
 ---
 
 # 🏗 Arquitectura del Proyecto
 
 ```text
+CI Tools
+   │
+   ▼
 GitHub
    │
    ▼
@@ -65,14 +76,27 @@ Docker
 ```text
 proyecto_docker/
 │
+
+
 ├── app.js
-├── Dockerfile
-├── Dockerfile.jenkins
-├── docker-compose.yml
-├── Jenkinsfile
 ├── package.json
 ├── package-lock.json
+│
+├── Dockerfile
+├── docker-compose.yml
+│
+├── Jenkinsfile
+├── Dockerfile.jenkins
+│
+├── .travis.yml
+│
+├── codeship-services.yml
+├── codeship-steps.yml
+│
+├── node_modules/
+│
 └── README.md
+
 ```
 
 ---
@@ -88,6 +112,20 @@ proyecto_docker/
 - Control de versiones con Git y GitHub.
 - Implementación de integración continua mediante Jenkins.
 - Automatización de procesos mediante Pipeline.
+- Integración continua adicional mediante Travis CI.
+- Validación automática del proyecto en la nube con Travis CI.
+- Configuración de servicios y ejecución de procesos en Codeship.
+- Verificación del entorno de desarrollo mediante Codeship.
+- Integración multiherramienta (Jenkins, Travis CI y Codeship).
+- Automatización de procesos al detectar cambios en GitHub.
+- Integración continua adicional mediante Travis CI.
+- Validación automática del proyecto en la nube con Travis CI.
+- Configuración y ejecución de procesos mediante Codeship.
+- Verificación del entorno de desarrollo utilizando Codeship.
+- Integración de múltiples herramientas de CI (Jenkins, Travis CI y Codeship).
+- Automatización de procesos al detectar cambios en el repositorio GitHub.
+
+
 
 ---
 
@@ -110,6 +148,17 @@ http://localhost:3000
 ```text
 http://localhost:8080
 ```
+
+## Acceso a herramientas de Integración Continua
+
+### Jenkins
+http://localhost:8080
+
+### Travis CI
+Se puede acceder al estado de ejecución desde el panel web de Travis CI vinculado al repositorio GitHub.
+
+### Codeship
+Se puede acceder al estado de ejecución desde el panel web de Codeship vinculado al repositorio.
 
 ---
 
@@ -237,8 +286,14 @@ Durante el desarrollo del proyecto se logró:
 - Configurar Jenkins para la automatización de procesos de Integración Continua.
 - Crear y ejecutar satisfactoriamente un Pipeline de Jenkins.
 - Visualizar información almacenada en la base de datos mediante una interfaz web.
+- Implementar validación automática del proyecto mediante Travis CI.
+- Ejecutar procesos de verificación en la nube utilizando Codeship.
+- Integrar múltiples herramientas de integración continua (Jenkins, Travis CI y Codeship).
+- Automatizar la ejecución del proyecto al detectar cambios en el repositorio GitHub.
+
 
 Este proyecto permitió aplicar de forma práctica los conceptos de contenerización, automatización, control de versiones e integración continua vistos durante el desarrollo de la asignatura.
+Además, se logró implementar un flujo completo de integración continua, donde múltiples herramientas automatizan la validación y ejecución del proyecto, mejorando la eficiencia y reduciendo la intervención manual.
 
 ---
 
@@ -250,6 +305,10 @@ Este proyecto permitió aplicar de forma práctica los conceptos de contenerizac
 - Git y GitHub facilitaron el control de versiones y el trabajo con ramas.
 - La integración entre Node.js y MySQL permitió consultar y visualizar información en tiempo real.
 - Se cumplieron los objetivos propuestos para la asignatura de Integración Continua.
+- Travis CI permitió validar el proyecto automáticamente en un entorno en la nube.
+- Codeship permitió ejecutar pruebas adicionales de integración sobre el proyecto.
+- La integración de múltiples herramientas (Jenkins, Travis CI y Codeship) permitió automatizar completamente el flujo de desarrollo.
+
 
 ---
 
