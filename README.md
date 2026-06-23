@@ -274,7 +274,39 @@ Salida de la terminal mostrando la construcción y ejecución correcta mediante 
 
 ---
 
+---
 
+## 11. Configuración de Travis CI
+
+Archivo `.travis.yml` que define la automatización del proyecto en Travis CI, ejecutando procesos como instalación de dependencias y construcción de la imagen Docker.
+
+<p align="center">
+  <img width="1600" height="627" alt="WhatsApp Image 2026-06-22 at 22 39 16" src="https://github.com/user-attachments/assets/d842d640-44f7-4ff4-98fe-430954419770" />
+</p>
+
+---
+
+---
+
+## 12. Configuración de Codeship
+
+Archivo `codeship-services.yml` utilizado para definir los servicios y la construcción de la aplicación mediante Docker en Codeship.
+
+<p align="center">
+<img width="1600" height="687" alt="WhatsApp Image 2026-06-22 at 22 43 33" src="https://github.com/user-attachments/assets/dc2258d8-663f-49d1-adeb-56dbb4f3f493" />
+</p>
+
+---
+
+## 13. Historial de ejecuciones en GitHub Actions
+
+Evidencia de múltiples ejecuciones exitosas del pipeline, mostrando la evolución del proyecto y la correcta integración continua.
+
+<p align="center">
+<img width="1600" height="610" alt="WhatsApp Image 2026-06-22 at 23 10 06" src="https://github.com/user-attachments/assets/f6c08adf-4b8e-48ca-94eb-0767ea24267b" />
+</p>
+
+---
 # ✅ Resultados Obtenidos
 
 Durante el desarrollo del proyecto se logró:
