@@ -297,6 +297,64 @@ Además, se logró implementar un flujo completo de integración continua, donde
 
 ---
 
+
+# 📜 Historial de Cambios
+
+A continuación se presenta el registro de cambios realizados durante el desarrollo del proyecto.
+
+## Versión 1.0 – Implementación inicial
+**Fecha:** Semana 3  
+**Cambios:**
+- Creación de contenedores Docker.
+- Configuración de red entre contenedores.
+- Implementación de comunicación entre servicios.
+- Pruebas de conectividad (ping entre contenedores).
+
+---
+
+## Versión 2.0 – Integración con Jenkins
+**Fecha:** Semana 5  
+**Cambios:**
+- Instalación de Jenkins.
+- Creación de un job automatizado.
+- Ejecución de comandos mediante Jenkins.
+- Integración de Jenkins con Docker.
+- Automatización de procesos del proyecto.
+
+---
+
+## Versión 3.0 – Integración Continua Completa
+**Fecha:** Semana 7  
+**Cambios:**
+- Integración del repositorio con GitHub.
+- Configuración de archivo `.travis.yml`.
+- Implementación de validación automática con Travis CI.
+- Configuración de Codeship mediante:
+  - codeship-services.yml
+  - codeship-steps.yml
+- Ejecución de pruebas en la nube.
+- Implementación del flujo completo:
+  GitHub → Jenkins → Docker  
+  GitHub → Travis CI  
+  GitHub → Codeship  
+
+---
+
+## Versión 3.1 – Mejora de documentación
+**Fecha:** Actual  
+**Cambios:**
+- Actualización del README.
+- Inclusión de integración multiherramienta.
+- Mejora de la arquitectura del proyecto.
+- Explicación del flujo de integración continua.
+- Organización de evidencias.
+
+
+
+---
+
+---
+
 # 📚 Conclusiones
 
 - Docker facilitó el despliegue y ejecución de la aplicación en contenedores.
