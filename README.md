@@ -9,13 +9,13 @@
 
 # 📖 Descripción
 
-Este proyecto académico fue desarrollado para la asignatura **Integración Continua** del **Politécnico Grancolombiano**.
+Este proyecto académico fue desarrollado para la asignatura Integración Continua del Politécnico Grancolombiano.
 
-El objetivo principal fue implementar una aplicación web utilizando **Node.js** y **MySQL**, desplegada mediante **Docker** y gestionada con **Docker Compose**. Adicionalmente, se implementó **Jenkins** para automatizar procesos de construcción, validación y ejecución mediante un Pipeline de Integración Continua.
+El objetivo principal fue implementar una aplicación web utilizando Node.js y MySQL, desplegada mediante Docker y gestionada con Docker Compose. Adicionalmente, se implementó Jenkins y GitHub Actions para automatizar procesos de construcción, validación y ejecución mediante un flujo de Integración Continua (CI/CD).
 
-La aplicación consulta información almacenada en la base de datos **venta_jugos** y presenta los registros de la tabla **tb_cliente** mediante una interfaz web accesible desde el navegador.
+La aplicación consulta información almacenada en la base de datos venta_jugos y presenta los registros de la tabla tb_cliente mediante una interfaz web accesible desde el navegador.
 
-Adicionalmente, el proyecto fue integrado con herramientas de integración continua en la nube como Github Actions CI y Codeship, permitiendo la validación automática del sistema en diferentes entornos. Esto permitió implementar un flujo completo de integración continua utilizando múltiples plataformas conectadas al repositorio de GitHub.
+La solución integra herramientas modernas de automatización y despliegue, permitiendo validar automáticamente la infraestructura y los servicios cada vez que se realizan cambios en el repositorio GitHub.
 
 ---
 
@@ -27,10 +27,9 @@ Adicionalmente, el proyecto fue integrado con herramientas de integración conti
 - Gestionar servicios mediante Docker Compose.
 - Implementar control de versiones utilizando Git y GitHub.
 - Automatizar procesos mediante Jenkins.
-- Aplicar conceptos de Integración Continua vistos durante el curso.
-- Implementar validación automática del proyecto mediante Github Actions CI.
-- Integrar herramientas adicionales de CI como Codeship para la verificación del sistema.
-- Aplicar un enfoque de integración continua multiherramienta (Jenkins, Github Actions y Codeship).
+- Implementar validación automática mediante GitHub Actions.
+- Integrar la aplicación y la base de datos dentro de una arquitectura contenerizada.
+- Aplicar conceptos de Integración Continua y DevOps vistos durante el curso.
 
 
 ---
@@ -46,8 +45,8 @@ Adicionalmente, el proyecto fue integrado con herramientas de integración conti
 - Git
 - GitHub
 - Visual Studio Code
-- Travis CI
-- Codeship
+- GitHub Actions
+
 
 ---
 
@@ -76,8 +75,13 @@ Docker
 ```text
 proyecto_docker/
 │
-
-
+├── .github/
+│ └── workflows/
+│ └── ci.yml
+│
+├── database/
+│ └── init.sql
+│
 ├── app.js
 ├── package.json
 ├── package-lock.json
@@ -88,12 +92,7 @@ proyecto_docker/
 ├── Jenkinsfile
 ├── Dockerfile.jenkins
 │
-├── ci.yml
-│
-├── codeship-services.yml
-├── codeship-steps.yml
-│
-├── node_modules/
+├── .gitignore
 │
 └── README.md
 
@@ -116,13 +115,13 @@ proyecto_docker/
 - Validación automática del proyecto en la nube con Github Actions CI.
 - Configuración de servicios y ejecución de procesos en Codeship.
 - Verificación del entorno de desarrollo mediante Codeship.
-- Integración multiherramienta (Jenkins, Github Actions CI y Codeship).
+- Validación automática de Docker y Docker Compose.
 - Automatización de procesos al detectar cambios en GitHub.
 - Integración continua adicional mediante Github Actions CI.
 - Validación automática del proyecto en la nube con Github Actions CI.
 - Configuración y ejecución de procesos mediante Codeship.
 - Verificación del entorno de desarrollo utilizando Codeship.
-- Integración de múltiples herramientas de CI (Jenkins, Github Actions CI y Codeship).
+- Implementación de GitHub Actions.
 - Automatización de procesos al detectar cambios en el repositorio GitHub.
 
 
@@ -321,8 +320,10 @@ Durante el desarrollo del proyecto se logró:
 - Visualizar información almacenada en la base de datos mediante una interfaz web.
 - Implementar validación automática del proyecto mediante Github Actions CI.
 - Ejecutar procesos de verificación en la nube utilizando Codeship.
-- Integrar múltiples herramientas de integración continua (Jenkins, Github Actions CI y Codeship).
+- Orquestación mediante Docker Compose.
 - Automatizar la ejecución del proyecto al detectar cambios en el repositorio GitHub.
+- Integración completa entre Node.js y MySQL.
+  
 
 
 Este proyecto permitió aplicar de forma práctica los conceptos de contenerización, automatización, control de versiones e integración continua vistos durante el desarrollo de la asignatura.
@@ -360,16 +361,12 @@ A continuación se presenta el registro de cambios realizados durante el desarro
 **Fecha:** Semana 7  
 **Cambios:**
 - Integración del repositorio con GitHub.
-- Configuración de archivo `.travis.yml`.
-- Implementación de validación automática con travis CI.
-- Configuración de Codeship mediante:
-  - codeship-services.yml
-  - codeship-steps.yml
-- Ejecución de pruebas en la nube.
-- Implementación del flujo completo:
-  GitHub → Jenkins → Docker  
-  GitHub → Travis CI  
-  GitHub → Codeship  
+- Configuración del workflow ci.yml.
+- Implementación de validación automática.
+- Validación de Docker y Docker Compose.
+- Integración MySQL.
+- Inicialización automática mediante init.sql.
+- Automatización CI/CD completa.
 
 ---
 
@@ -395,8 +392,23 @@ A continuación se presenta el registro de cambios realizados durante el desarro
 ---
 
 # ❌ Problemas Encontrados
-- Al hacer la integración con Travis, se requiere version paga.
-- Se elimina la integracion hecha con Travis y se hace con GitHub Actions
+- Travis CI requería plan de pago para la ejecución de pipelines.
+- Se reemplazó Travis CI por GitHub Actions.
+- Error de sintaxis YAML en docker-compose.yml.
+- Integración inicial sin servicio MySQL.
+- Ajustes de sincronización Git mediante pull --rebase.
+
+---
+
+# Lecciones Aprendidas
+
+- Uso de Docker para contenerización.
+- Uso de Docker Compose para orquestación.
+- Integración Node.js y MySQL.
+- Automatización mediante Jenkins.
+- Automatización mediante GitHub Actions.
+- Gestión colaborativa mediante GitHub.
+- Resolución de errores YAML y CI/CD
 
 ---
 
