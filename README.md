@@ -15,7 +15,7 @@ El objetivo principal fue implementar una aplicación web utilizando **Node.js**
 
 La aplicación consulta información almacenada en la base de datos **venta_jugos** y presenta los registros de la tabla **tb_cliente** mediante una interfaz web accesible desde el navegador.
 
-Adicionalmente, el proyecto fue integrado con herramientas de integración continua en la nube como Travis CI y Codeship, permitiendo la validación automática del sistema en diferentes entornos. Esto permitió implementar un flujo completo de integración continua utilizando múltiples plataformas conectadas al repositorio de GitHub.
+Adicionalmente, el proyecto fue integrado con herramientas de integración continua en la nube como Github Actions CI y Codeship, permitiendo la validación automática del sistema en diferentes entornos. Esto permitió implementar un flujo completo de integración continua utilizando múltiples plataformas conectadas al repositorio de GitHub.
 
 ---
 
@@ -28,9 +28,9 @@ Adicionalmente, el proyecto fue integrado con herramientas de integración conti
 - Implementar control de versiones utilizando Git y GitHub.
 - Automatizar procesos mediante Jenkins.
 - Aplicar conceptos de Integración Continua vistos durante el curso.
-- Implementar validación automática del proyecto mediante Travis CI.
+- Implementar validación automática del proyecto mediante Github Actions CI.
 - Integrar herramientas adicionales de CI como Codeship para la verificación del sistema.
-- Aplicar un enfoque de integración continua multiherramienta (Jenkins, Travis CI y Codeship).
+- Aplicar un enfoque de integración continua multiherramienta (Jenkins, Github Actions y Codeship).
 
 
 ---
@@ -88,7 +88,7 @@ proyecto_docker/
 ├── Jenkinsfile
 ├── Dockerfile.jenkins
 │
-├── .travis.yml
+├── ci.yml
 │
 ├── codeship-services.yml
 ├── codeship-steps.yml
@@ -112,17 +112,17 @@ proyecto_docker/
 - Control de versiones con Git y GitHub.
 - Implementación de integración continua mediante Jenkins.
 - Automatización de procesos mediante Pipeline.
-- Integración continua adicional mediante Travis CI.
-- Validación automática del proyecto en la nube con Travis CI.
+- Integración continua adicional mediante Github Actions CI.
+- Validación automática del proyecto en la nube con Github Actions CI.
 - Configuración de servicios y ejecución de procesos en Codeship.
 - Verificación del entorno de desarrollo mediante Codeship.
-- Integración multiherramienta (Jenkins, Travis CI y Codeship).
+- Integración multiherramienta (Jenkins, Github Actions CI y Codeship).
 - Automatización de procesos al detectar cambios en GitHub.
-- Integración continua adicional mediante Travis CI.
-- Validación automática del proyecto en la nube con Travis CI.
+- Integración continua adicional mediante Github Actions CI.
+- Validación automática del proyecto en la nube con Github Actions CI.
 - Configuración y ejecución de procesos mediante Codeship.
 - Verificación del entorno de desarrollo utilizando Codeship.
-- Integración de múltiples herramientas de CI (Jenkins, Travis CI y Codeship).
+- Integración de múltiples herramientas de CI (Jenkins, Github Actions CI y Codeship).
 - Automatización de procesos al detectar cambios en el repositorio GitHub.
 
 
@@ -154,8 +154,8 @@ http://localhost:8080
 ### Jenkins
 http://localhost:8080
 
-### Travis CI
-Se puede acceder al estado de ejecución desde el panel web de Travis CI vinculado al repositorio GitHub.
+### Github Actions CI
+Se puede acceder al estado de ejecución desde el panel web de Github Actions CI vinculado al repositorio GitHub.
 
 ### Codeship
 Se puede acceder al estado de ejecución desde el panel web de Codeship vinculado al repositorio.
@@ -274,6 +274,7 @@ Salida de la terminal mostrando la construcción y ejecución correcta mediante 
 
 ---
 
+
 # ✅ Resultados Obtenidos
 
 Durante el desarrollo del proyecto se logró:
@@ -286,9 +287,9 @@ Durante el desarrollo del proyecto se logró:
 - Configurar Jenkins para la automatización de procesos de Integración Continua.
 - Crear y ejecutar satisfactoriamente un Pipeline de Jenkins.
 - Visualizar información almacenada en la base de datos mediante una interfaz web.
-- Implementar validación automática del proyecto mediante Travis CI.
+- Implementar validación automática del proyecto mediante Github Actions CI.
 - Ejecutar procesos de verificación en la nube utilizando Codeship.
-- Integrar múltiples herramientas de integración continua (Jenkins, Travis CI y Codeship).
+- Integrar múltiples herramientas de integración continua (Jenkins, Github Actions CI y Codeship).
 - Automatizar la ejecución del proyecto al detectar cambios en el repositorio GitHub.
 
 
@@ -328,7 +329,7 @@ A continuación se presenta el registro de cambios realizados durante el desarro
 **Cambios:**
 - Integración del repositorio con GitHub.
 - Configuración de archivo `.travis.yml`.
-- Implementación de validación automática con Travis CI.
+- Implementación de validación automática con travis CI.
 - Configuración de Codeship mediante:
   - codeship-services.yml
   - codeship-steps.yml
@@ -340,9 +341,17 @@ A continuación se presenta el registro de cambios realizados durante el desarro
 
 ---
 
-## Versión 3.1 – Mejora de documentación
-**Fecha:** Actual  
+## Versión 3.1 – Cambio de Travis por Github Actions
+**Fecha:** Semana 7
 **Cambios:**
+- Integración del repositorio con GitHub.
+- Configuración de archivo `ci.yml`.
+- Implementación de validación automática con Github Actions CI.
+- Ejecución de pruebas en la nube.
+- Implementación del flujo completo:
+  GitHub → Jenkins → Docker  
+  GitHub → Github Actions CI  
+  GitHub → Codeship 
 - Actualización del README.
 - Inclusión de integración multiherramienta.
 - Mejora de la arquitectura del proyecto.
@@ -352,6 +361,10 @@ A continuación se presenta el registro de cambios realizados durante el desarro
 
 
 ---
+
+# ❌ Problemas Encontrados
+- Al hacer la integración con Travis, se requiere version paga.
+- Se elimina la integracion hecha con Travis y se hace con GitHub Actions
 
 ---
 
@@ -365,7 +378,7 @@ A continuación se presenta el registro de cambios realizados durante el desarro
 - Se cumplieron los objetivos propuestos para la asignatura de Integración Continua.
 - Travis CI permitió validar el proyecto automáticamente en un entorno en la nube.
 - Codeship permitió ejecutar pruebas adicionales de integración sobre el proyecto.
-- La integración de múltiples herramientas (Jenkins, Travis CI y Codeship) permitió automatizar completamente el flujo de desarrollo.
+- La integración de múltiples herramientas (Jenkins, Github Actions CI y Codeship) permitió automatizar completamente el flujo de desarrollo.
 
 
 ---
