@@ -1,0 +1,19 @@
+CREATE DATABASE IF NOT EXISTS venta_jugos;
+
+USE venta_jugos;
+
+CREATE TABLE IF NOT EXISTS tb_cliente (
+    DNI VARCHAR(20) PRIMARY KEY,
+    NOMBRE VARCHAR(100),
+    CIUDAD VARCHAR(100),
+    SEXO VARCHAR(10),
+    EDAD INT,
+    LIMITE_CREDITO DECIMAL(12,2)
+);
+
+INSERT INTO tb_cliente
+(DNI, NOMBRE, CIUDAD, SEXO, EDAD, LIMITE_CREDITO)
+VALUES
+('1001','Juan Pérez','Bogotá','M',25,500000),
+('1002','María Gómez','Medellín','F',30,750000),
+('1003','Carlos Ruiz','Barranquilla','M',28,650000);
