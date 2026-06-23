@@ -1,8 +1,29 @@
 version: '3.8'
 
 services:
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: Dragon2307*
+      MYSQL_DATABASE: venta_jugos
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
 
   app:
     build: .
+    container_name: web-app
     ports:
       - "3000:3000"
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: Dragon2307*
+      DB_NAME: venta_jugos
+    depends_on:
+      - db
+
+volumes:
+  mysql_data:

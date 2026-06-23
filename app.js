@@ -4,10 +4,10 @@ const mysql = require('mysql2');
 const app = express();
 
 const connection = mysql.createConnection({
-    host: 'host.docker.internal',
-    user: 'root',
-    password: 'Dragon2307*',
-    database: 'venta_jugos'
+    host: process.env.DB_HOST || 'db',
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || 'Dragon2307*',
+    database: process.env.DB_NAME || 'venta_jugos'
 });
 
 connection.connect((err) => {
