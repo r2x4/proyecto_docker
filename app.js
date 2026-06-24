@@ -20,8 +20,9 @@ connection.connect((err) => {
 });
 
 app.get('/', (req, res) => {
-    connection.query('SELECT * FROM tb_cliente', (err, results) => {
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
 
+    connection.query('SELECT * FROM tb_cliente', (err, results) => {
         if (err) {
             console.error(err);
             return res.send('Error conectando a MySQL');
@@ -68,8 +69,7 @@ app.get('/', (req, res) => {
         </html>
         `;
 
-    res.setHeader('Content-Type', 'text/html; charset=utf-8');
-    res.send(html);
+        res.send(html);
     });
 });
 
