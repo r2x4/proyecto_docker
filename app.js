@@ -7,7 +7,8 @@ const connection = mysql.createConnection({
     host: process.env.DB_HOST || 'db',
     user: process.env.DB_USER || 'root',
     password: process.env.DB_PASSWORD || 'Dragon2307*',
-    database: process.env.DB_NAME || 'venta_jugos'
+    database: process.env.DB_NAME || 'venta_jugos',
+    charset: 'utf8mb4'
 });
 
 connection.connect((err) => {
@@ -28,60 +29,34 @@ app.get('/', (req, res) => {
 
         let html = `
         <!DOCTYPE html>
-        <html>
+        <html lang="es">
         <head>
+            <meta charset="UTF-8">
             <title>Venta de Jugos</title>
-            <style>
-                body {
-                    font-family: Arial, sans-serif;
-                    margin: 20px;
-                }
-                h1 {
-                    text-align: center;
-                }
-                table {
-                    width: 100%;
-                    border-collapse: collapse;
-                }
-                th {
-                    background-color: #007bff;
-                    color: white;
-                    padding: 10px;
-                }
-                td {
-                    padding: 8px;
-                    border: 1px solid #ddd;
-                }
-                tr:nth-child(even) {
-                    background-color: #f2f2f2;
-                }
-            </style>
         </head>
         <body>
-
-        <h1>Clientes - Venta de Jugos</h1>
-
-        <table>
-            <tr>
-                <th>DNI</th>
-                <th>Nombre</th>
-                <th>Ciudad</th>
-                <th>Sexo</th>
-                <th>Edad</th>
-                <th>Límite Crédito</th>
-            </tr>
+            <h1>Clientes - Venta de Jugos</h1>
+            <table border="1">
+                <tr>
+                    <th>DNI</th>
+                    <th>Nombre</th>
+                    <th>Ciudad</th>
+                    <th>Sexo</th>
+                    <th>Edad</th>
+                    <th>Límite Crédito</th>
+                </tr>
         `;
 
         results.forEach(cliente => {
             html += `
-            <tr>
-                <td>${cliente.DNI}</td>
-                <td>${cliente.NOMBRE}</td>
-                <td>${cliente.CIUDAD}</td>
-                <td>${cliente.SEXO}</td>
-                <td>${cliente.EDAD}</td>
-                <td>$${cliente.LIMITE_CREDITO}</td>
-            </tr>
+                <tr>
+                    <td>${cliente.DNI}</td>
+                    <td>${cliente.NOMBRE}</td>
+                    <td>${cliente.CIUDAD}</td>
+                    <td>${cliente.SEXO}</td>
+                    <td>${cliente.EDAD}</td>
+                    <td>$${cliente.LIMITE_CREDITO}</td>
+                </tr>
             `;
         });
 
@@ -93,7 +68,8 @@ app.get('/', (req, res) => {
         </html>
         `;
 
-        res.send(html);
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.send(html);
     });
 });
 
